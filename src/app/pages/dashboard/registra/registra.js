@@ -25,7 +25,8 @@ export default function RegistrarUsers(){
                 
                 <div className="name">
                     <input id="nomeRegis" placeholder="Digite seu nome" type="text" name="name" value={name}//nome que foi colocado no user
-                    onChange={e => setName(e.target.value)}/>
+                    onChange={e => setName(e.target.value)}/>{/*onChange aciona um valor de entrada (como um campo de texto)
+                             é uma função de retorno chamado (callback) q é executada quando o onChange ocorre*/}
                 </div>
 
                 <div className="email">
