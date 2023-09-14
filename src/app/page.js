@@ -20,11 +20,11 @@ export default function Login() {//define uma função chamada login
     try {
       const userAuth = await handlerAcessUser(user);
       if (userAuth.token === undefined){//verifica se o objeto "userAuth" retornado possui um token. Se a propriedade não tiver um token sera "undefined", significando que a autenticação não foi bem sucedida
-        toast.error("erro no email ou senha")//se a propriedade "userAuth" for undifined o codigo chama a função "toast.error" para exibir a mensagem de erro
+        toast.error("Erro no e-mail ou senha!")//se a propriedade "userAuth" for undifined o codigo chama a função "toast.error" para exibir a mensagem de erro
       }
       push('/pages/dashboard');//Se a chamada para handlerAcessUser for bem-sucedida (ou seja, o login for bem-sucedido), o código dentro do try é executado, e push('/pages/dashboard') é chamado.
     } catch {//se ocorrer algum erro durante o processo de login (por exemplo, credenciais inválidas), o código dentro do bloco catch é executado, e refresh() é chamado.
-        toast.error("erro na aplication")
+        toast.error("Erro na aplicação")
     }
   }
   return (//retorna 
