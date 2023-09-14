@@ -2,6 +2,8 @@
 import { useState } from "react";//importação
 import handlerAcessUser from "./functions/handlerAcess"
 import { useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function Login() {//define uma função chamada login
   const [user, setUser] = useState({//essa linha utiliza o hook useState do React para definir o estado do componente Login.
@@ -16,11 +18,13 @@ export default function Login() {//define uma função chamada login
     e.preventDefault();//evita o comportamento padrão do HTML
                       //Isso é importante porque você deseja controlar o processo de login de forma assíncrona sem uma recarga completa da página.
     try {
-      await handlerAcessUser(user);//essa função lida com a tentativa de login do usuário. 
+      const userAuth = await handlerAcessUser(user);
+      if (userAuth.token === undefined){//verifica se o objeto "userAuth" retornado possui um token. Se a propriedade não tiver um token sera "undefined", significando que a autenticação não foi bem sucedida
+        toast.error("erro no email ou senha")//se a propriedade "userAuth" for undifined o codigo chama a função "toast.error" para exibir a mensagem de erro
+      }
       push('/pages/dashboard');//Se a chamada para handlerAcessUser for bem-sucedida (ou seja, o login for bem-sucedido), o código dentro do try é executado, e push('/pages/dashboard') é chamado.
-      //try-catch é usado para lidar com possíveis erros que podem ocorrer durante o processo de login.
     } catch {//se ocorrer algum erro durante o processo de login (por exemplo, credenciais inválidas), o código dentro do bloco catch é executado, e refresh() é chamado.
-      refresh();//é usado para atualizar a página atual
+        toast.error("erro na aplication")
     }
   }
   return (//retorna 
@@ -42,6 +46,7 @@ export default function Login() {//define uma função chamada login
         </input>
         <button>Entrar</button>
       </form>
+      <ToastContainer/>{/*chamando a importação*/}
     </div>
   )
 }
