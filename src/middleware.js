@@ -12,6 +12,10 @@ export const middleware = (request) => {//obtem o token do cookie, se existir
         if (request.nextUrl.pathname === '/pages/dashboard') {//redireciona para a URL de login
             return NextResponse.redirect(urlLogin);
         }
+        if (request.nextUrl.pathname === '/' && token)//consiste em duas partes separadas pelo & 
+          //request.nextUrl.pathname === '/': Isso verifica se o pathname da URL de requisição (request.nextUrl.pathname) é igual a '/'.
+                                               //token está definida e é avaliada como verdadeira.
+          return NextResponse.redirect('/pages/dashboard');//redireciona o usuario para a URL
     }
     NextResponse.next();//é chamada a função NextResponse.next() para continuar o fluxo normal de execução, permitindo que a aplicação siga para o próximo middleware ou rota.
 };
