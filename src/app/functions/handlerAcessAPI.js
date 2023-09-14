@@ -6,6 +6,11 @@ const users = [//criando um afunção chamada users
         email: "yasLinda@gmail.com",
         password: "1234",
         token: ""
+    },
+    {
+        name: "jen",
+        email: "jenzinha@gmail.com",
+        token: ""
     }
 ];
 
