@@ -10,7 +10,7 @@ export default function Login() {//define uma função chamada login
     email: '',
     password: '',
   });
-  const { push, refresh } = useRouter();
+  const { push } = useRouter();
   //Push é uma função que permite a navegação programática em seu aplicativo Next.js.
   //Refresh é uma função que atualiza a página atual sem recarregá-la completamente.
   
@@ -19,6 +19,7 @@ export default function Login() {//define uma função chamada login
                       //Isso é importante porque você deseja controlar o processo de login de forma assíncrona sem uma recarga completa da página.
     try {
       const userAuth = await handlerAcessUser(user);
+      console.log (userAuth)
       if (userAuth.token === undefined){//verifica se o objeto "userAuth" retornado possui um token. Se a propriedade não tiver um token sera "undefined", significando que a autenticação não foi bem sucedida
         toast.error("Erro no e-mail ou senha!")//se a propriedade "userAuth" for undifined o codigo chama a função "toast.error" para exibir a mensagem de erro
       }

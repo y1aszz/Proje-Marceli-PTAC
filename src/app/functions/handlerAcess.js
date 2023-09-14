@@ -13,6 +13,7 @@ const handlerAcessUser = async (user) => {//async função assincrona, o user é
         localStorage.setItem('name', userAuth.name);//userAuth armazena o nome do usuário. localStorange permite que acesse o nome do usuario sem solicitação de rede   
         return getUserAuthenticated//retorna a função getUser
     }
+    return userAuth;
 }
 export default handlerAcessUser;
 

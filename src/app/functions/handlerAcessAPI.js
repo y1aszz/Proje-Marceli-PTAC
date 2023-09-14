@@ -15,7 +15,12 @@ const users = [//criando um afunção chamada users
 ];
 
 const getUserAuthenticated = (user) => {
-    return users.find(u => u.email === user.password && u.password ===user.password);
+    let userAuth ={}
+    users.map(u => {  
+        if( u.email === user.email && u.password ===user.password){
+          userAuth = u
+        }});
+      return userAuth
     //users.find tenta encontrar um usuario na lista
     //compara o email fornecido pelo usuario com o campo 'password' na lista de usuarios
     //compara a senha fornecida pelo usuario com o campo 'password' na lista de usuarios
