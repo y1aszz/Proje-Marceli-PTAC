@@ -20,7 +20,7 @@ const getUserAuthenticated = (user) => {
         if( u.email === user.email && u.password ===user.password){
           userAuth = u
         }});
-      return userAuth
+      return userAuth//retorna os usuarios da lista
     //users.find tenta encontrar um usuario na lista
     //compara o email fornecido pelo usuario com o campo 'password' na lista de usuarios
     //compara a senha fornecida pelo usuario com o campo 'password' na lista de usuarios
