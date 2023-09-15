@@ -19,7 +19,6 @@ export default function Login() {//define uma função chamada login
                       //Isso é importante porque você deseja controlar o processo de login de forma assíncrona sem uma recarga completa da página.
     try {
       const userAuth = await handlerAcessUser(user);
-      console.log (userAuth)
       if (userAuth.token === undefined){//verifica se o objeto "userAuth" retornado possui um token. Se a propriedade não tiver um token sera "undefined", significando que a autenticação não foi bem sucedida
         toast.error("Erro no e-mail ou senha!")//se a propriedade "userAuth" for undifined o codigo chama a função "toast.error" para exibir a mensagem de erro
       }
