@@ -1,6 +1,7 @@
 'use client'
 import { useState } from "react";//importações
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 export default function RegistrarUsers(){
     const router = useRouter();//cria uma variavel chamada router que armazena uma instancia do roteador Next.js
@@ -40,6 +41,8 @@ export default function RegistrarUsers(){
                 </div>
 
                 <button className="buttonRegis" type="submit">Registrar</button>
+                <br/>
+                <Link href={"/"}>Sair</Link>
             </form>
         </div>
     )

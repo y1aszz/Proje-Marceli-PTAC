@@ -39,8 +39,10 @@ export default function AlteraUsuario(){
                 </div>
                 
                 <div className="submit">
-                    <button id="buttonAlter" type="submit">Atualizar User</button>
+                    <button id="buttonAlter" type="submit">Atualizar</button>
                 </div>
+                <br/>
+                <Link href={"/"}>Sair</Link>
             </form>
         </div>
     )

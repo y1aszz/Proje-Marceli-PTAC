@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";//importação
+import Link from "next/link";
 import handlerAcessUser from "./functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
@@ -10,7 +11,7 @@ export default function Login() {//define uma função chamada login
     email: '',
     password: '',
   });
-  const { push } = useRouter();
+  const { push, refresh } = useRouter();
   //Push é uma função que permite a navegação programática em seu aplicativo Next.js.
   //Refresh é uma função que atualiza a página atual sem recarregá-la completamente.
   
@@ -24,7 +25,7 @@ export default function Login() {//define uma função chamada login
       }
       push('/pages/dashboard');//Se a chamada para handlerAcessUser for bem-sucedida (ou seja, o login for bem-sucedido), o código dentro do try é executado, e push('/pages/dashboard') é chamado.
     } catch {//se ocorrer algum erro durante o processo de login (por exemplo, credenciais inválidas), o código dentro do bloco catch é executado, e refresh() é chamado.
-        toast.error("Erro na aplicação")
+        refresh()
     }
   }
   return (//retorna 
@@ -45,7 +46,11 @@ export default function Login() {//define uma função chamada login
           onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
         </input>
         <button>Entrar</button>
-      </form>
+        <br/>
+        <Link href={"/pages/dashboard/registra"}>Registrar</Link>
+        <br/>
+        <Link href={"/pages/dashboard/altera"}>Alterar</Link>
+        </form>
       <ToastContainer/>{/*chamando a importação*/}
     </div>
   )
