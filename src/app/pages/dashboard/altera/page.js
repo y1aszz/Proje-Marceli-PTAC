@@ -1,6 +1,10 @@
 'use client'
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+import handlerAcessUser from "@/app/functions/handlerAcess";
 
 export default function AlteraUsuario(){
     const router = useRouter();
@@ -8,7 +12,7 @@ export default function AlteraUsuario(){
     const [emailAltera, setEmailAltera] = useState("");
     const [passwordAltera, setPasswordAltera] = useState("");
 
-    const alterar = (e) => {
+    const alterar = async (e) => {
         e.preventDefault()
 
         const user = {
@@ -16,6 +20,13 @@ export default function AlteraUsuario(){
             emailAltera: emailAltera,
             passwordAltera: passwordAltera
         }
+
+        try{
+            const userAuth = await handlerAcessUser(user);
+            if(userAuth.token ===undefined){
+                toast.success("Usuário alterado com sucesso")
+            }
+        } catch{}
     }
 
     return(
@@ -44,6 +55,7 @@ export default function AlteraUsuario(){
                 <br/>
                 <Link href={"/"}>Sair</Link>
             </form>
+            <ToastContainer/>
         </div>
     )
 }

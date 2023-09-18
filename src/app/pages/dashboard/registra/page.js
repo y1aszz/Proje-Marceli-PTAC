@@ -2,6 +2,9 @@
 import { useState } from "react";//importações
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
+import handlerAcessUser from "@/app/functions/handlerAcess";
 
 export default function RegistrarUsers(){
     const router = useRouter();//cria uma variavel chamada router que armazena uma instancia do roteador Next.js
@@ -9,13 +12,25 @@ export default function RegistrarUsers(){
     const [password, setPassword] = useState ("");//o mesmo serve para o password e email 
     const [email, setEmail] = useState("");
 
-    const register = (e) => {// (e) é um parametro da função que representa um evento
+    const { push, refresh } = useRouter();
+
+    const register = async (e) => {// (e) é um parametro da função que representa um evento
         e.preventDefault()//método que impede o comportamento padrão do evento.
+        
         const user = {//cria um objeto chamado user
             name: name,
             password: password,
             email: email
         }
+
+        try{
+            const userAuth = await handlerAcessUser(user);
+            if(userAuth.token === undefined){
+                toast.success("Usuário registrado com sucesso")
+            }
+            
+        }  catch{}
+        
     }
 
     return(//retorna um HTML
@@ -44,6 +59,7 @@ export default function RegistrarUsers(){
                 <br/>
                 <Link href={"/"}>Sair</Link>
             </form>
+            <ToastContainer/>
         </div>
     )
 }
