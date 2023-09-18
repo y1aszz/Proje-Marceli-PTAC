@@ -1,5 +1,6 @@
 'use client'
 import Link from "next/link"
+import styles from "./login.css"
 
 export const metadata = {//define um objeto chamado metadata
   title: 'Register users',//define o título de uma página ou de algum componente específico.
@@ -9,7 +10,13 @@ export const metadata = {//define um objeto chamado metadata
 export default function RootLayout({ children }) {//
   return (
     <html lang="pt-br">
-      <body>{children}</body>
+      <body className={styles.login}>
+
+<div className="Lay">
+      
+        {children}
+        </div>
+      </body>
       </html>
   )
 }

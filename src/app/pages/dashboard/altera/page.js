@@ -31,7 +31,14 @@ export default function AlteraUsuario(){
 
     return(
         <div className="container">
-            <h2 className="h2Altera">Alteração de Usuarios</h2>
+
+<div className="Links">
+       <Link id="login" href={"/"}>↩Sair</Link>   
+       <Link id="register" href={"/pages/dashboard/registra"}>Registrar</Link>
+       <Link id="alter" href={"/pages/dashboard/altera"}>Alterar</Link>
+</div>
+
+            <h2 className="h2Altera">Alterar Usuário</h2>
 
             <form className="formAlter" onSubmit={alterar}>
                 <div className="name">
@@ -53,7 +60,6 @@ export default function AlteraUsuario(){
                     <button id="buttonAlter" type="submit">Atualizar</button>
                 </div>
                 <br/>
-                <Link href={"/"}>Sair</Link>
             </form>
             <ToastContainer/>
         </div>

@@ -12,7 +12,7 @@ export default function Login() {
     email: '',
     password: '',
   });
-  const { push, refresh } = useRouter();
+  const { push } = useRouter();
 
 
   const handlerLogin = async (e) => {
@@ -25,17 +25,11 @@ export default function Login() {
       }
       push('/pages/dashboard');
     } catch {
-        refresh()
+        toast.error("Erro na aplicação");
       }
   }
   return (//retorna 
     <div id="Login" className={styles.login}>
-
-<div className="Links">
-       <Link id="login" href={"/"}>Login</Link>   
-       <Link id="register" href={"/pages/dashboard/registra"}>Registrar</Link>
-       <Link id="alter" href={"/pages/dashboard/altera"}>Alterar</Link>
-</div>
       
       <form onSubmit={handlerLogin}>{/*quando o usuário envia o formulário 
       (por exemplo, ao pressionar Enter após preencher os campos de email e senha e clicar
@@ -56,7 +50,7 @@ export default function Login() {
         </input>
         <span>Senha</span>
 
-        <h1 className="smile">😺💻</h1>
+        <h1 className="smile">💻🐙</h1>
 
         <button id="buttonLogin">Entrar</button>
        
