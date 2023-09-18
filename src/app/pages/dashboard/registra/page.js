@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import handlerAcessUser from "@/app/functions/handlerAcess";
+import styles from "./register.css";
 
 export default function RegistrarUsers(){
     const router = useRouter();//cria uma variavel chamada router que armazena uma instancia do roteador Next.js
@@ -34,8 +35,14 @@ export default function RegistrarUsers(){
     }
 
     return(//retorna um HTML
-        <div className="container">
-            <h1 className="regis">Registrar Usuarios</h1>
+        <div className={styles.register}>
+
+
+<div className="Links">
+       <Link id="login" href={"/"}>Login</Link>   
+       <Link id="register" href={"/pages/dashboard/registra"}>Registrar</Link>
+       <Link id="alter" href={"/pages/dashboard/altera"}>Alterar</Link>
+</div>
             
             <form className="formRegis" onSubmit={register}>
                 

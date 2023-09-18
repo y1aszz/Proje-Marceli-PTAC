@@ -6,27 +6,25 @@ import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import styles from "./login.css";
-import Image from "next/image";
 
-export default function Login() {//define uma função chamada login
-  const [user, setUser] = useState({//essa linha utiliza o hook useState do React para definir o estado do componente Login.
+export default function Login() {
+  const [user, setUser] = useState({
     email: '',
     password: '',
   });
   const { push, refresh } = useRouter();
-  //Push é uma função que permite a navegação programática em seu aplicativo Next.js.
-  //Refresh é uma função que atualiza a página atual sem recarregá-la completamente.
-  
-  const handlerLogin = async (e) => {//função assincrona pq é marcada com o async.
-    e.preventDefault();//evita o comportamento padrão do HTML
-                      //Isso é importante porque você deseja controlar o processo de login de forma assíncrona sem uma recarga completa da página.
+
+
+  const handlerLogin = async (e) => {
+    e.preventDefault();
+                      
     try {
       const userAuth = await handlerAcessUser(user);
-      if (userAuth.token === undefined){//verifica se o objeto "userAuth" retornado possui um token. Se a propriedade não tiver um token sera "undefined", significando que a autenticação não foi bem sucedida
-        toast.error("Erro no e-mail ou senha!")//se a propriedade "userAuth" for undifined o codigo chama a função "toast.error" para exibir a mensagem de erro
+      if (userAuth.token === undefined){
+        toast.error("Erro no e-mail ou senha!")
       }
-      push('/pages/dashboard');//Se a chamada para handlerAcessUser for bem-sucedida (ou seja, o login for bem-sucedido), o código dentro do try é executado, e push('/pages/dashboard') é chamado.
-    } catch {//se ocorrer algum erro durante o processo de login (por exemplo, credenciais inválidas), o código dentro do bloco catch é executado, e refresh() é chamado.
+      push('/pages/dashboard');
+    } catch {
         refresh()
       }
   }

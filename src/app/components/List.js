@@ -1,4 +1,3 @@
-import { resolve } from "styled-jsx/css";
 
 export default async function List({users}){
     await new Promise((resolve) => setTimeout(resolve, 3000));
