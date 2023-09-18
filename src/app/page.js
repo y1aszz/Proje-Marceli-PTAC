@@ -1,6 +1,5 @@
 'use client'
 import { useState } from "react";//importação
-import Link from "next/link";
 import handlerAcessUser from "./functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
@@ -30,10 +29,10 @@ export default function Login() {
   }
   return (//retorna 
     <div id="Login" className={styles.login}>
+      <h2>Login</h2>
       
-      <form onSubmit={handlerLogin}>{/*quando o usuário envia o formulário 
-      (por exemplo, ao pressionar Enter após preencher os campos de email e senha e clicar
-       em um botão "Entrar"), a função handlerLogin será chamada para lidar com a submissão.*/}
+      <form onSubmit={handlerLogin}>
+       
         <input
           className="inputLogin"
           type="email"

@@ -20,7 +20,7 @@ export const middleware = (request) => {//obtem o token do cookie, se existir
             return NextResponse.redirect('/pages/dashboard');
         }          //request.nextUrl.pathname === '/': Isso verifica se o pathname da URL de requisição (request.nextUrl.pathname) é igual a '/'.
                                                //token está definida e é avaliada como verdadeira.
-        if(request.nextUrl.pathname === 'pages/dashboard/registra' || request.nextUrl.pathname === '/pages/dashboard/altera' && !isTokenValidated){
+        if(request.nextUrl.pathname === 'pages/dashboard/registra' || request.nextUrl.pathname === '/pages/dashboard/altera'){
             return NextResponse.redirect(urlLogin);
         }
         if (isTokenValidated){
