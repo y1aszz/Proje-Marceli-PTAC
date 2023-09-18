@@ -1,0 +1,120 @@
+body, #buttonLogin {
+  background-color: #d3d3d3;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+#Login{
+  position: relative;
+  height: 560px;
+  width: 405px;
+  margin: auto;
+  padding: 60px 60px;
+  background-color: rgb(53, 53, 53); 
+  background-size: cover;
+  box-shadow: 0px 30px 60px -5px #000;
+}
+
+form{
+    padding-top: 80px;
+}
+
+input{
+    color: #FFF;
+}
+
+#login{
+    border-bottom: 2px solid #1161ed;
+    color: #FFF;
+}
+
+#register{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#register:hover{
+    border-bottom: 2px solid #1161ed;
+}
+
+#alter:hover{
+    border-bottom: 2px solid #1161ed;
+}
+
+#register, #alter{
+    color: rgba(255, 255, 255, 0.2);
+}
+
+#register, #alter, #login{
+    text-decoration: none;
+}
+
+
+.Links{
+    padding-left: 12px;
+    font-size: 22px;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    letter-spacing: 2px;
+    display: inline-block;
+    font-weight: 100;
+}
+
+.inputLogin{
+    border: none;
+    width: 89%;
+    padding: 10px 20px;
+    display: block;
+    height: 15px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0);
+    overflow: hidden;
+    margin-top: 15px;
+    transition: all 0.5s ease-in-out;
+}
+
+
+
+  span{
+    text-transform: uppercase;
+    font-size: 12px;
+    opacity: 0.4; 
+    display: inline-block;
+    position: relative;
+    top: -65px;
+    transition: all 0.5s ease-in-out;
+  }
+
+#buttonLogin {
+    background-color: rgba(63, 78, 191, 1);
+    color: #FFF;
+    width: 100%;
+    padding: 10px 20px;
+    display: block;
+    height: 39px;
+    border-radius: 20px;
+    margin-top: 30px;
+    transition: all 0.5s ease-in-out;
+    border: none;
+    text-transform: uppercase;
+  }
+  
+  #buttonLogin:hover {
+    background: #4082f5;
+    box-shadow: 0px 4px 35px -5px #4082f5;
+    cursor: pointer;
+  }
+  
+  #buttonLogin:focus {
+    outline: none;
+  }
+
+
+ .smile{
+    margin-left: 100px;
+    font-size: 70px;
+ }
+  
