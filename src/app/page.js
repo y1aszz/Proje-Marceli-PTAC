@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";//importação
+import Link from "next/link";
 import handlerAcessUser from "./functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
@@ -32,7 +33,6 @@ export default function Login() {
       <h2>Login</h2>
       
       <form onSubmit={handlerLogin}>
-       
         <input
           className="inputLogin"
           type="email"

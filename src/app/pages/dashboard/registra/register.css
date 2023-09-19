@@ -12,7 +12,7 @@
     text-transform: uppercase;
 }
 
-.buttonRegis{
+.buttonRegis:hover{
 background: #4082f5;
 box-shadow: 0px 4px 35px -5px #4082f5;
 cursor: pointer;

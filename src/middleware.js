@@ -8,38 +8,25 @@ export const middleware = (request) => {//obtem o token do cookie, se existir
     const token = request.cookies.get('token')?.value;//cria uma instancia da URL da requisição
     const urlLogin = new URL('/', request.url);//valida token
     const isTokenValidated = validateToken(token);//verifica se o token n é valido ou se esta ausente
+    const urlDashboard = new URL('/pages/dashboard', request.url)
 
-
-
-    
-    if (!isTokenValidated || !token) {//verifica se a proxima URL (request.nextUrl) é /pages/dashboard'
-        if (request.nextUrl.pathname === '/pages/dashboard') {//redireciona para a URL de login
+    if (!isTokenValidated || ! token){
+        if (request.nextUrl.pathname === '/pages/dashboard'
+        || request.nextUrl.pathname === '/pages/dashboard/registra'
+        || request.nextUrl.pathname === '/pages/dashboard/altera'){
             return NextResponse.redirect(urlLogin);
-        }
-        if (request.nextUrl.pathname === '/' && token){//consiste em duas partes separadas pelo & 
-            return NextResponse.redirect('/pages/dashboard');
-        }          //request.nextUrl.pathname === '/': Isso verifica se o pathname da URL de requisição (request.nextUrl.pathname) é igual a '/'.
-                                               //token está definida e é avaliada como verdadeira.
-        if(request.nextUrl.pathname === 'pages/dashboard/registra' || request.nextUrl.pathname === '/pages/dashboard/altera'){
-            return NextResponse.redirect(urlLogin);
-        }
-        if (isTokenValidated){
-            return NextResponse.next();
         }
     }
-
-
-    
-    NextResponse.next();//é chamada a função NextResponse.next() para continuar o fluxo normal de execução, permitindo que a aplicação siga para o próximo middleware ou rota.
-
-
-
+    if (isTokenValidated){
+        if (request.nextUrl.pathname === '/'){
+            return NextResponse.redirect(urlDashboard);
+        }
+    }
+    NextResponse.next();
 };
 
-
-export const config = {//objeto que esta sendo exportado
-    matcher: ['/', '/pages/dashboard']//configura o matcher para corresponder às rotas '/' (raiz) e '/pages/dashboard'.
-
-
+export const config ={
+    matcher: ['/', '/pages/dashboard/:path*']
 };
+
 
