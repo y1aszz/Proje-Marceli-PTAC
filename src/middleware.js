@@ -16,30 +16,25 @@ export const middleware = (request) => {//obtem o token do cookie, se existir
 
         if (isTokenValidated){
             if (request.nextUrl.pathname === '/'){
-                return NextResponse.redirect('/pages/dashboard');
+                return NextResponse.redirect(urlDashboard);
             }
         }
 
         if (!isTokenValidated || !token){//consiste em duas partes separadas pelo & 
-            if (request.nextUrl.pathname === '/pages/altera'){
+            if (request.nextUrl.pathname === '/pages/dashboard/altera'){
             return NextResponse.redirect(urlLogin);
         }
         }         
     
         if (!isTokenValidated || !token){//consiste em duas partes separadas pelo & 
-            if (request.nextUrl.pathname === '/pages/registra'){
-            return NextResponse.redirect('/');
+            if (request.nextUrl.pathname === '/pages/dashboard/registra'){
+            return NextResponse.redirect(urlLogin);
         }
-        } 
-        if (isTokenValidated){
-            if (request.nextUrl.pathname === '/'){
-                return NextResponse.redirect(urlDashboard);
-            }
         }  
 
     }
     NextResponse.next();//é chamada a função NextResponse.next() para continuar o fluxo normal de execução, permitindo que a aplicação siga para o próximo middleware ou rota.
 };
 export const config = {//objeto que esta sendo exportado
-    matcher: ['/', '/pages/dashboard/:path*']//configura o matcher para corresponder às rotas '/' (raiz) e '/pages/dashboard'.
+    matcher: ['/', '/pages/dashboard/', '/pages/dashboard/registra', '/pages/dashboard/altera' ]//configura o matcher para corresponder às rotas '/' (raiz) e '/pages/dashboard'.
 };

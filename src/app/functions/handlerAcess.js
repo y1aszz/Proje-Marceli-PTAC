@@ -8,9 +8,8 @@ const handlerAcessUser = async (user) => {//async função assincrona, o user é
     
     const isTokenValidate = validateToken(userAuth.token);//valideToken passa o token obtido da autenticação
 
-    if (isTokenValidate) {//inicia uma verificação se a variável isTokenVali é verdadeira. Se for true, o código dentro será executado; caso contrário, será ignorado.
-       Cookies.set('token', userAuth.token, {expires:1});
-       localStorage.setItem('name', userAuth.name)
+    if (isTokenValidate) {
+       Cookies.set('token', userAuth.token, {expires:1}) && localStorage.setItem('name', JSON.stringify(userAuth.name))
     }
     return userAuth;
 }
