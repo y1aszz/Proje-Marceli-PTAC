@@ -1,6 +1,5 @@
 'use client'
 import { useState } from "react";//importação
-import Link from "next/link";
 import handlerAcessUser from "./functions/handlerAcess"
 import { useRouter } from "next/navigation";
 import { ToastContainer, toast } from "react-toastify";
@@ -36,7 +35,7 @@ export default function Login() {
         <input
           className="inputLogin"
           type="email"
-          required
+     
           onChange={(e) => { setUser({ ...user, email: e.target.value }) }}>{/*função de retorno de chamada (callback) que será executada quando o evento onChange ocorrer.
          Criando um novo objeto que contem todas as propriedades*/}
         </input>
@@ -46,7 +45,7 @@ export default function Login() {
         <input
           className="inputLogin"
           type='password'
-          required
+         
           onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
         </input>
         <span>Senha</span>
