@@ -50,18 +50,18 @@ export default function RegistrarUsers(){
             <form className="formRegis" onSubmit={register}>
                 
                 
-                    <input id="inputRegis" placeholder="Digite seu nome" type="text" name="name" value={name}//nome que foi colocado no user
+                    <input id="inputRegis" placeholder="Digite seu nome" type="text" name="name" required value={name}//nome que foi colocado no user
                     onChange={e => setName(e.target.value)}/>{/*onChange aciona um valor de entrada (como um campo de texto)
                              é uma função de retorno chamado (callback) q é executada quando o onChange ocorre*/}
                              <span>Nome</span>
                
 
-                <input id="inputRegis" placeholder="Digite seu email" type="email" name="name" value={email}//email que foi colocado no user
+                <input id="inputRegis" placeholder="Digite seu email" type="email" name="name" required value={email}//email que foi colocado no user
                     onChange={e => setEmail(e.target.value)}/>
                     <span>Email</span>
 
                
-                <input id="inputRegis" placeholder="Digite sua senha" type="password" name="password" value={password}//password que foi colocado no user
+                <input id="inputRegis" placeholder="Digite sua senha" type="password" name="password" required value={password}//password que foi colocado no user
                     onChange={e => setPassword(e.target.value)}/>
                <span>Senha</span>
 

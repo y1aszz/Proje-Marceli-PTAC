@@ -22,9 +22,9 @@ const users = [//criando um afunção chamada users
 ];
 
 const getUserAuthenticated = (user) => {
-    let userAuth ={}
+    let userAuth ={};
     users.map(u => {  
-        if( u.email === user.email && u.password ===user.password){
+        if( u.email === user.email && u.password === user.password){
           userAuth = u
         }});
       return userAuth//retorna os usuarios da lista

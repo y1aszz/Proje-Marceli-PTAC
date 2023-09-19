@@ -10,6 +10,7 @@ const handlerAcessUser = async (user) => {//async função assincrona, o user é
 
     if (isTokenValidate) {//inicia uma verificação se a variável isTokenVali é verdadeira. Se for true, o código dentro será executado; caso contrário, será ignorado.
        Cookies.set('token', userAuth.token, {expires:1});
+       localStorage.setItem('name', userAuth.name)
     }
     return userAuth;
 }

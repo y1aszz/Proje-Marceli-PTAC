@@ -17,7 +17,7 @@ export default function Login() {
 
   const handlerLogin = async (e) => {
     e.preventDefault();
-                      
+                    
     try {
       const userAuth = await handlerAcessUser(user);
       if (userAuth.token === undefined){
@@ -36,6 +36,7 @@ export default function Login() {
         <input
           className="inputLogin"
           type="email"
+          required
           onChange={(e) => { setUser({ ...user, email: e.target.value }) }}>{/*função de retorno de chamada (callback) que será executada quando o evento onChange ocorrer.
          Criando um novo objeto que contem todas as propriedades*/}
         </input>
@@ -45,6 +46,7 @@ export default function Login() {
         <input
           className="inputLogin"
           type='password'
+          required
           onChange={(e) => { setUser({ ...user, password: e.target.value }) }}>
         </input>
         <span>Senha</span>

@@ -12,7 +12,7 @@ export default async function Dashboard() {
       <div>
             
 <div className="Links">
-      <Link id="login" href={"/"}>↩Sair</Link>   
+       <Link id="login" href={"/"}>↩Sair</Link>   
        <Link id="register" href={"/pages/dashboard/registra"}>Registrar</Link>
        <Link id="alter" href={"/pages/dashboard/altera"}>Alterar</Link>
 </div>

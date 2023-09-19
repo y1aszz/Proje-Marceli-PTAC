@@ -1,7 +1,6 @@
 'use server'
 import { NextResponse } from "next/server";//importação
 import { validateToken } from "./app/functions/validateToken";
-import Link from "next/link";
 
 export const middleware = (request) => {//obtem o token do cookie, se existir
 

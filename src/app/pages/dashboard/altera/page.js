@@ -27,7 +27,9 @@ export default function AlteraUsuario(){
             if(userAuth.token ===undefined){
                 toast.success("Usuário alterado com sucesso")
             }
-        } catch{}
+        } catch{
+            toast.error("Erro na aplicação");
+        }
     }
 
     return(
@@ -43,17 +45,17 @@ export default function AlteraUsuario(){
 
             <form className="formAlter" onSubmit={alterar}>
                 
-                    <input id="inputAlter" placeholder="Digite o nome do usuario" type="text" name="name" value={nameAltera}
+                    <input id="inputAlter" placeholder="Digite o nome do usuario" type="text" name="name" required value={nameAltera}
                     onChange={e => setNameAltera(e.target.value)}></input>
                 <span>Nome</span>
 
                
-                    <input id="inputAlter" placeholder="Digite o email do usuario" type="email" name="email" value={emailAltera}
+                    <input id="inputAlter" placeholder="Digite o email do usuario" type="email" name="email" required value={emailAltera}
                     onChange={e => setEmailAltera(e.target.value)}></input>
                <span>Email</span>
 
               
-                    <input id="inputAlter" placeholder="Digite a senha do usuario" type="text" name="password" value={passwordAltera}
+                    <input id="inputAlter" placeholder="Digite a senha do usuario" type="text" name="password" required value={passwordAltera}
                     onChange={e => setPasswordAltera(e.target.value)}></input>
                 <span>Senha</span>
                 
