@@ -13,6 +13,6 @@ const getUserAuthenticated = async (user) => {
 }
 
 const getUsers = async () =>{
-      
+         
 }
 export { getUsers, getUserAuthenticated };
