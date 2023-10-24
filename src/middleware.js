@@ -2,11 +2,11 @@
 import { NextResponse } from "next/server";//importação
 import { validateToken } from "./app/functions/validateToken";
 
-export const middleware = (request) => {//obtem o token do cookie, se existir
+export const middleware = async (request) => {//obtem o token do cookie, se existir
 
     const token = request.cookies.get('token')?.value;//cria uma instancia da URL da requisição
     const urlLogin = new URL('/', request.url);//valida token
-    const isTokenValidated = validateToken(token);//verifica se o token n é valido ou se esta ausente
+    const isTokenValidated = await validateToken(token);//verifica se o token n é valido ou se esta ausente
     const urlDashboard = new URL ('/pages/dashboard', request.url);
 
     if (!isTokenValidated || !token) {//verifica se a proxima URL (request.nextUrl) é /pages/dashboard'

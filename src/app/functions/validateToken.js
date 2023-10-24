@@ -1,10 +1,16 @@
 import { decode } from "jsonwebtoken";//importação
+import { jwtVerify } from "jose";
 
-const validateToken = (token)=>{//usada para validar o token JWT fornecido.
-    const isTokenValidate = decode(token);//Dentro da função, a linha acima chama a função decode da biblioteca jsonwebtoken para tentar decodificar o token JWT. O resultado da decodificação é armazenado na variável 
-    if(isTokenValidate){
-        return token= true//se for true (verdadeira) indica que o token passou na validação
+const validateToken = async (token)=>{//usada para validar o token JWT fornecido.
+    const secret = "eyJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY5NTY5MTU0MiwiaWF0IjoxNjk1NjkxNTQyfQ.EG-A9n08TjSSm2affCX5Bl3yRpDbIytMIO5j2iMalLA";
+    try{
+        const isTokenValidate = await jwtVerify (token,
+            new TextEncoder().encode(secret));
+            if(isTokenValidate){
+                return true
+            }
+    } catch{
+        return false;
     }
-    return token=false;//se for false (falsa) indica que o token falhou
-}   
+}
 export {validateToken};

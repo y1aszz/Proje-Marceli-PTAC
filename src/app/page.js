@@ -18,6 +18,7 @@ export default function Login() {
     e.preventDefault();
                     
     try {
+      console.log(user)
       const userAuth = await handlerAcessUser(user);
       if (userAuth.token === undefined){
         toast.error("Erro no e-mail ou senha!")
