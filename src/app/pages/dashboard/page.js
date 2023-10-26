@@ -7,7 +7,7 @@ import Link from "next/link";
 
 
 export default async function Dashboard() {
-   const users = getUsers();//retorna a lista de usuarios estabelecida no handlerAcessAPI
+   const users = await getUsers();//retorna a lista de usuarios estabelecida no handlerAcessAPI
     return (
       <div>
             

@@ -1,6 +1,8 @@
+import { getUsers } from "../functions/handlerAcessAPI";
 
-export default async function List({users}){
+export default async function List(){
     await new Promise((resolve) => setTimeout(resolve, 3000));
+    const users = await getUsers();
     return(
         <div>
             <h3>Lista de Usuários Cadastrados</h3>

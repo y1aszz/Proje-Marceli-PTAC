@@ -6,7 +6,7 @@ const getUserAuthenticated = async (user) => {
    const responseOfApi = await fetch(url + "/user/authenticated",
     {
         method: "POST",
-        header: {"Content-Type": "application/json"},
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(user)
     });
     const useAuth = await responseOfApi.json();
