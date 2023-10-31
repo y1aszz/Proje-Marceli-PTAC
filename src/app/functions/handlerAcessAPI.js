@@ -1,5 +1,5 @@
 'use server'
-const url="https://aula-17-10-m2vq19h7a-y1asz.vercel.app";
+const url="https://aula-17-10-2fa7.vercel.app/";
 
 const getUserAuthenticated = async (user) => {
     console.log(user)
