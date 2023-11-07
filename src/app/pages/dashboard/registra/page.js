@@ -6,33 +6,30 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css'
 import handlerAcessUser from "@/app/functions/handlerAcess";
 import styles from "./register.css";
+import { resolve } from "styled-jsx/css";
 
 export default function RegistrarUsers(){
-    const router = useRouter();//cria uma variavel chamada router que armazena uma instancia do roteador Next.js
-    const [name, setName] = useState ("");// Isso representa o estado do campo de nome no formulário de registro. O valor inicial é definido como uma string vazia, "".
-    const [password, setPassword] = useState ("");//o mesmo serve para o password e email 
-    const [email, setEmail] = useState("");
-
-    const { push, refresh } = useRouter();
-
-    const register = async (e) => {// (e) é um parametro da função que representa um evento
-        e.preventDefault()//método que impede o comportamento padrão do evento.
-        
-        const user = {//cria um objeto chamado user
-            name: name,
-            password: password,
-            email: email
-        }
-
-        try{
-            const userAuth = await handlerAcessUser(user);
-            if(userAuth.token === undefined){
-                toast.success("Usuário registrado com sucesso")
-            }
+        const [user, setUser] = useState({
+            name: '',
+            password: '',
+            email: ''
+            });
             
-        }  catch{}
-        
-    }
+            const { push } = useRouter();
+
+            const handlerFormSubmit = async (event) => {
+                event.preventDefault();
+            try{
+                await postUser(user);
+                await new Promise((resolve) => {
+                    toast.success("Usuário encontrado com sucesso!");
+                    setTimeout(resolve, 5000);
+                });
+                return push("/pages/dashboard");
+            } catch {
+                return toast.error("Erro")
+            } 
+    };
 
     return(//retorna um HTML
         <div className={styles.register}>
