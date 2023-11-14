@@ -23,7 +23,7 @@ export default function RegistrarUsers(){
             try{
                 await postUser(user);
                 await new Promise((resolve) => {
-                    toast.success("Usuário encontrado com sucesso!");
+                    toast.success("Usuário registrado com sucesso!");
                     setTimeout(resolve, 5000);
                 });
                 return push("/pages/dashboard");
@@ -63,7 +63,7 @@ export default function RegistrarUsers(){
                     onChange={e => setUser({...user, password: e.target.value})}/>
                <span>Senha</span>
 
-               <h1 className="RegisMoji">💂👸</h1>
+               <h1 className="RegisMoji">🐧➕</h1>
                 <button className="buttonRegis" type="submit">Registrar</button>
                 <br/>
             </form>
