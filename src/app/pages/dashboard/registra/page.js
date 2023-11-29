@@ -37,6 +37,7 @@ export default function RegistrarUsers(){
 
            
 
+
 <div className="Links">
        <Link id="login" href={"/pages/dashboard"}>↩Home</Link>   
        <Link id="register" href={"/pages/dashboard/registra"}>Registrar</Link>
