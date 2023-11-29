@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ToastContainer, toast } from "react-toastify";
@@ -12,8 +12,8 @@ export default function AlteraUsuario({params}){
     
     const [user, setUser] = useState({
         name: '',
+        email: '',
         password: '',
-        email: ''
         });
         
         const { push } = useRouter();
