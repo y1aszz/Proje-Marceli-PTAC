@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getUsers } from "../functions/handlerAcessAPI";
 
 export default async function List(){
@@ -8,7 +9,8 @@ export default async function List(){
             <h3>Lista de Usuários Cadastrados</h3>
             <ul>
                 {users?.map((user, index) => (
-                    <li key={index}>{user.name}, {user.email}</li>
+                  
+                    <Link href={`/pages/dashboard/altera/${user.id}`}><li key={index}>{user.name}, {user.email}</li></Link>
                 ))}
             </ul>
         </div>
