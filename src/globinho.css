@@ -1,0 +1,14 @@
+ul li{
+    list-style-type: none;
+    color: aliceblue;
+    color: rgba(255, 255, 255, 0.406);
+    margin-top: 7px;
+}
+
+a{
+    text-decoration: none;  
+}
+
+li:hover{
+    color: aliceblue;
+}

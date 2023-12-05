@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getUsers } from "../functions/handlerAcessAPI";
+import "@/globinho.css";
 
 export default async function List(){
     await new Promise((resolve) => setTimeout(resolve, 3000));
