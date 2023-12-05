@@ -23,7 +23,7 @@ export default function AlteraUsuario({params}){
         try{
             await updateUser(user, params.id);
             await new Promise((resolve) => {
-                toast.success("Usuário registrado com sucesso!");
+                toast.success("Usuário alterado com sucesso!");
                 setTimeout(resolve, 5000);
             });
             return push("/pages/dashboard");
@@ -36,8 +36,6 @@ export default function AlteraUsuario({params}){
 
 <div className="Links">
        <Link id="login" href={"/pages/dashboard"}>↩Home</Link>   
-       <Link id="register" href={"/pages/dashboard/registra"}>Registrar</Link>
-       <Link id="alter" href={"/pages/dashboard/altera"}>Alterar</Link>
 </div>
 
             <h2 className="h2Altera">Alterar Usuário</h2>
@@ -45,17 +43,17 @@ export default function AlteraUsuario({params}){
             <form className="formAlter" onSubmit={alterar}>
                 
                     <input id="inputAlter" placeholder="Digite o nome do usuario" type="text" name="name" required value={user.name}
-                    onChange={e => setUser({...user, name: e.target.value})}></input>
+                    onChange={(e) => {setUser({...user, name: e.target.value})}}></input>
                 <span>Nome</span>
 
                
                     <input id="inputAlter" placeholder="Digite o email do usuario" type="email" name="email" required value={user.email}
-                     onChange={e => setUser({...user, email: e.target.value})}></input>
+                     onChange={(e) => {setUser({...user, email: e.target.value})}}></input>
                <span>Email</span>
 
               
                     <input id="inputAlter" placeholder="Digite a senha do usuario" type="text" name="password" required value={user.password}
-                     onChange={e => setUser({...user, password: e.target.value})}></input>
+                     onChange={(e) => {setUser({...user, password: e.target.value})}}></input>
                 <span>Senha</span>
                 
 

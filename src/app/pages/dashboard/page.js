@@ -14,7 +14,6 @@ export default async function Dashboard() {
 <div className="Links">
        <Link id="login" href={"/pages/dashboard/"}>↩Home</Link>   
        <Link id="register" href={"/pages/dashboard/registra"}>Registrar</Link>
-       <Link id="alter" href={"/pages/dashboard/altera"}>Alterar</Link>
 </div>
 
             <Suspense fallback={<p>Loading...</p>}>
