@@ -44,12 +44,12 @@ export default function AlteraUsuario({params}){
                 
                     <input id="inputAlter" placeholder="Digite o nome do usuario" type="text" name="name" required value={user.name}
                     onChange={(e) => {setUser({...user, name: e.target.value})}}></input>
-                <span>Nome</span>
+                    <span>Nome</span>
 
                
                     <input id="inputAlter" placeholder="Digite o email do usuario" type="email" name="email" required value={user.email}
                      onChange={(e) => {setUser({...user, email: e.target.value})}}></input>
-               <span>Email</span>
+                    <span>Email</span>
 
               
                     <input id="inputAlter" placeholder="Digite a senha do usuario" type="text" name="password" required value={user.password}
